@@ -1,0 +1,21 @@
+columns:
+    title:
+        label: 'blskye.curdtools::lang.curdtoolsdata.title'
+        type: text
+        searchable: true
+        sortable: true
+    endpoint:
+        label: 'blskye.curdtools::lang.curdtoolsdata.endpoint'
+        type: text
+        searchable: true
+        sortable: true
+    model:
+        label: 'blskye.curdtools::lang.curdtoolsdata.model'
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: 'blskye.curdtools::lang.curdtoolsdata.description'
+        type: text
+        searchable: true
+        sortable: true

@@ -1,2 +1,5 @@
 1.0.1:
-    - Initialize plugin.
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table blskye_curdtools_data'
+    - builder_table_create_blskye_curdtools_data.php

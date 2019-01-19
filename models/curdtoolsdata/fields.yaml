@@ -1,0 +1,26 @@
+fields:
+    title:
+        label: 'blskye.curdtools::lang.curdtoolsdata.title'
+        span: left
+        required: 1
+        type: text
+    endpoint:
+        label: 'blskye.curdtools::lang.curdtoolsdata.endpoint'
+        span: right
+        required: 1
+        type: text
+    model:
+        label: 'blskye.curdtools::lang.curdtoolsdata.model'
+        span: full
+        required: 1
+        type: text
+    description:
+        label: 'blskye.curdtools::lang.curdtoolsdata.description'
+        size: small
+        span: full
+        type: richeditor
+    custom_format:
+        label: 'blskye.curdtools::lang.curdtoolsdata.custom_format'
+        size: small
+        span: full
+        type: richeditor
