@@ -1,0 +1,6 @@
+plugin:
+    name: 'blskye.curdtools::lang.plugin.name'
+    description: 'blskye.curdtools::lang.plugin.description'
+    author: Blskye
+    icon: oc-icon-outdent
+    homepage: ''
