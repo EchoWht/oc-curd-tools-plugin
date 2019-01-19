@@ -16,11 +16,11 @@ fields:
         type: text
     description:
         label: 'blskye.curdtools::lang.curdtoolsdata.description'
-        size: small
         span: full
-        type: richeditor
+        size: large
+        type: textarea
     custom_format:
         label: 'blskye.curdtools::lang.curdtoolsdata.custom_format'
-        size: small
         span: full
-        type: richeditor
+        size: large
+        type: textarea
