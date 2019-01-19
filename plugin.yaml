@@ -8,3 +8,13 @@ permissions:
     blskye.curdtools.manage:
         tab: 'blskye.curdtools::lang.manage'
         label: 'blskye.curdtools::lang.manage'
+navigation:
+    main-menu-item:
+        label: 'blskye.curdtools::lang.manage'
+        url: blskye/curdtools/curdtoolsdata
+        icon: icon-life-ring
+        sideMenu:
+            side-menu-item:
+                label: 'blskye.curdtools::lang.generator_all'
+                url: blskye/curdtools/curdtoolsdata
+                icon: icon-sitemap

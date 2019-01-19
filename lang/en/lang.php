@@ -10,5 +10,6 @@
         'description' => 'description',
         'custom_format' => 'custom_format',
     ],
-    'manage' => 'Manage',
+    'manage' => 'Curd Tools',
+    'generator_all' => 'Gen All',
 ];
