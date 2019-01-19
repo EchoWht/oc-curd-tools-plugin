@@ -4,3 +4,7 @@ plugin:
     author: Blskye
     icon: oc-icon-outdent
     homepage: ''
+permissions:
+    blskye.curdtools.manage:
+        tab: 'blskye.curdtools::lang.manage'
+        label: 'blskye.curdtools::lang.manage'

@@ -1,7 +1,7 @@
 <?php return [
     'plugin' => [
         'name' => 'CurdTools',
-        'description' => ''
+        'description' => '',
     ],
     'curdtoolsdata' => [
         'title' => 'title',
@@ -10,4 +10,5 @@
         'description' => 'description',
         'custom_format' => 'custom_format',
     ],
+    'manage' => 'Manage',
 ];
