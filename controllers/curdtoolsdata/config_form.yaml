@@ -1,0 +1,10 @@
+name: CurdToolsData
+form: $/blskye/curdtools/models/curdtoolsdata/fields.yaml
+modelClass: Blskye\CurdTools\Models\CurdtoolsData
+defaultRedirect: blskye/curdtools/curdtoolsdata
+create:
+    redirect: 'blskye/curdtools/curdtoolsdata/update/:id'
+    redirectClose: blskye/curdtools/curdtoolsdata
+update:
+    redirect: blskye/curdtools/curdtoolsdata
+    redirectClose: blskye/curdtools/curdtoolsdata

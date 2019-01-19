@@ -1,0 +1,12 @@
+list: $/blskye/curdtools/models/curdtoolsdata/columns.yaml
+modelClass: Blskye\CurdTools\Models\CurdtoolsData
+title: CurdToolsData
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'blskye/curdtools/curdtoolsdata/update/:id'
