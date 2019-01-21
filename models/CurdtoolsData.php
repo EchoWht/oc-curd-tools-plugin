@@ -1,7 +1,7 @@
 <?php namespace Blskye\CurdTools\Models;
 
 use Model;
-
+use RainLab\Builder\Classes\ComponentHelper;
 /**
  * Model
  */
@@ -24,4 +24,13 @@ class CurdtoolsData extends Model
      */
     public $rules = [
     ];
+
+    /**
+     * get model List
+     * @return [type] [description]
+     */
+    public function getModelOptions(){
+
+        return ComponentHelper::instance()->listGlobalModels();
+    }
 }

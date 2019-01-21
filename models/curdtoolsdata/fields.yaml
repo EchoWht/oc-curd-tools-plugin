@@ -13,7 +13,7 @@ fields:
         label: 'blskye.curdtools::lang.curdtoolsdata.model'
         span: full
         required: 1
-        type: text
+        type: dropdown
     description:
         label: 'blskye.curdtools::lang.curdtoolsdata.description'
         span: full
