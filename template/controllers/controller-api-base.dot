@@ -1,0 +1,14 @@
+<?php namespace Blskye\CurdTools\Controllers\API;
+use Backend\Classes\Controller;
+use BackendMenu;
+use Illuminate\Support\Facades\Request;
+use {{model}};
+class {{controllername}}Api extends Controller
+{
+    protected $helpers;
+    public function __construct(Helpers $helpers)
+    {
+        parent::__construct();
+        $this->helpers = $helpers;
+    }
+}
