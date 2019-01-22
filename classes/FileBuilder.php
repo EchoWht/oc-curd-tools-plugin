@@ -25,7 +25,7 @@ class FileBuilder
      * @param $data
      */
     public  function apiControllerFile($data){
-        $this->files->put(__DIR__ . $this->path .$data['controllername']. 'Api.php',$this->genApiFileContent($data));
+        $this->files->put(__DIR__ . $this->path .$data['controllername']. 'ApiController.php',$this->genApiFileContent($data));
     }
 
     /**

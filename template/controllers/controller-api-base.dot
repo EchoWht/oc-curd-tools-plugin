@@ -3,12 +3,30 @@ use Backend\Classes\Controller;
 use BackendMenu;
 use Illuminate\Support\Facades\Request;
 use {{model}};
-class {{controllername}}Api extends Controller
+class {{controllername}}ApiController extends Controller
 {
     protected $helpers;
-    public function __construct(Helpers $helpers)
+    public function __construct()
     {
         parent::__construct();
-        $this->helpers = $helpers;
+    }
+
+    /**
+     * 所有记录
+     * @route_demo /data?sort=id,-name
+     * @return mixed
+    */
+    public function index(){
+        $query={{modelname}}::query();
+        $sort=Request::input('sort');
+        if ($sort!=null){
+            $sorts=explode(',',Request::input('sort'));
+            foreach ($sorts as $sortCol){
+                $sortDir=starts_with($sortCol,'-')?'desc':'asc';
+                $sortCol=ltrim($sortCol,'-');
+                $query->orderBy($sortCol,$sortDir);
+            }
+        }
+        return $query->paginate(10);
     }
 }
