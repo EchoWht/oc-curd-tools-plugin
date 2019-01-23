@@ -17,9 +17,11 @@ class {{controllername}}ApiController extends Controller
      * @return mixed
     */
     public function index(){
+
         $query={{modelname}}::query();
-        $sort=Request::input('sort');
-        if ($sort!=null){
+
+        //排序
+        if (Request::has('sort')){
             $sorts=explode(',',Request::input('sort'));
             foreach ($sorts as $sortCol){
                 $sortDir=starts_with($sortCol,'-')?'desc':'asc';
@@ -27,6 +29,13 @@ class {{controllername}}ApiController extends Controller
                 $query->orderBy($sortCol,$sortDir);
             }
         }
+
+        //过滤
+        if (Request::has('filter')){
+            list($criteria,$value)=explode(':',Request::input('filter'));
+            $query->where($criteria,$value);
+        }
+        
         return $query->paginate(10);
     }
 }
