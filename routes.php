@@ -24,4 +24,6 @@ Route::get('api/test/error', function (){
     return Response::json(['error_code'=>'401001','message'=>''],401);
 });
 
-
+Route::resource('api/test/url', 'Blskye\CurdTools\Controllers\API\UrlApiController')
+    ->middleware('\Tymon\JWTAuth\Middleware\GetUserFromToken')
+;
