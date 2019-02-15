@@ -1,2 +1,3 @@
-# oc-curd-tools-plugin
-api generator
+# Curd Tools For OctoberCMS
+
+API generator
