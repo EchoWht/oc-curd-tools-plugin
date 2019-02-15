@@ -72,7 +72,11 @@ class UrlApiController extends Controller
 
         $validation = Validator::make($data, $Url->rules);
         if( $validation->passes() ){
-            $Url=Url::create($data);
+            while ( $tmp = current($data)) {
+                $Url->{key($data)} = $tmp;
+                next($data);
+            }
+            $Url->save();
             return JsonResponseBuilder::created($Url);
         }else{
             return JsonResponseBuilder::badRequest($validation->errors() );
