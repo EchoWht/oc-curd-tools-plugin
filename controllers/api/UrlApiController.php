@@ -1,20 +1,21 @@
 <?php namespace Blskye\CurdTools\Controllers\API;
 use Backend\Classes\Controller;
-use BackendMenu;
-use Blskye\Curdtools\Classes\JsonResponseBuilder;
-use blskye\curdtools\classes\UserToken;
+
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 
 use Blskye\Package\Models\Url;
-use October\Test\Models\User;
+use Blskye\Curdtools\Classes\JsonResponseBuilder;
+use Blskye\Curdtools\Classes\UserToken;
 
 class UrlApiController extends Controller
 {
-    protected $helpers;
+    protected $userModel;
     public function __construct()
     {
         parent::__construct();
+        $this->userModel=UserToken::getUserFromToken();
+
     }
 
     /**
@@ -51,7 +52,10 @@ class UrlApiController extends Controller
      * @return mixed
      */
     public function show($id){
-        $data = Url::find($id);
+
+        $data = Url::where('id',$id)
+            ->where('user_id',$this->userModel->id)
+            ->first();
         if($data){
             return JsonResponseBuilder::ok($data);
         }
@@ -67,8 +71,7 @@ class UrlApiController extends Controller
         $fillable=$Url->getFillable();
         $data=Request::only($fillable);
 
-        $userModel = UserToken::getUserFromToken();//获取用户Model
-        $data['user_id']=$userModel->id;
+        $data['user_id']=$this->userModel->id;
 
         $validation = Validator::make($data, $Url->rules);
         if( $validation->passes() ){
@@ -93,18 +96,16 @@ class UrlApiController extends Controller
         $fillable=$Url->getFillable();
         $data=Request::only($fillable);
 
-        $userModel = UserToken::getUserFromToken();//获取用户Model
-
         $validation = Validator::make($data, $Url->rules);
         if( $validation->passes() ){
             $status = Url::where('id',$id)
-                ->where('user_id',$userModel->id)
+                ->where('user_id',$this->userModel->id)
                 ->update($data);
 
             if( $status ){
                 return JsonResponseBuilder::accepted(Url::find($id));
             }else{
-                return JsonResponseBuilder::forbidden([]);
+                return JsonResponseBuilder::badRequest(['message'=>'数据不存在，或没有修改权限']);
             }
         }else{
             return JsonResponseBuilder::badRequest($validation->errors() );
@@ -119,14 +120,13 @@ class UrlApiController extends Controller
     public function destroy($id){
 
         $status=Url::where('id',$id)
+            ->where('user_id',$this->userModel->id)
             ->delete();
         if ($status){
             return JsonResponseBuilder::ok($status);
         }else{
-            return JsonResponseBuilder::badRequest($status);
+            return JsonResponseBuilder::badRequest(['message'=>'数据不存在，或没有修改权限']);
         }
 
     }
-
-
 }
